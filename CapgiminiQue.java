@@ -1,0 +1,53 @@
+package com.daaPracticle;
+
+import java.util.Scanner;
+
+public class CapgiminiQue {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int semester;
+
+        System.out.println("Enter no of semester:");
+        semester = scanner.nextInt();
+
+        int [] subjects = new int[semester];
+        for (int i = 0; i < semester; i++) {
+            System.out.println("Enter no of subjects in "+(i+1) + " semester");
+            subjects[i] = scanner.nextInt();
+        }
+
+
+
+
+        int[][] marks = new int[semester][];
+        for (int i = 0; i < semester; i++) {
+            marks[i] = new int[subjects[i]]; // Initialize each semester with the correct number of subjects
+        }
+
+        for (int i = 0; i < semester; i++) {
+            System.out.println("Marks obtained in semester " + (i + 1) + ":");
+            for (int j = 0; j < subjects[i]; j++) {
+
+                marks[i][j] = scanner.nextInt();
+            }
+        }
+        
+
+        int maxNum;
+        for (int i = 0; i < marks.length; i++) {
+                maxNum  = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if(maxNum < marks[i][j])
+                {
+                    maxNum = marks[i][j];
+                }
+            }
+
+            System.out.println("Maximum marks in "+(i+1)+" semester:"+maxNum);
+        }
+
+
+    }
+}
